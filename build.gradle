@@ -10,11 +10,16 @@ buildscript {
         maven {
             url "http://mvn.leancloud.cn/nexus/content/repositories/public"
         }
+        maven {
+            url "http://repo-sc.alibaba-inc.com/nexus/content/repositories/subreleases-eleme-android"
+        }
+        maven { url "http://repo-sc.alibaba-inc.com/nexus/content/groups/public/" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'me.ele:lancet-plugin:1.0.2'
-        classpath 'com.novoda:bintray-release:0.3.4'
+        //classpath 'com.novoda:bintray-release:0.3.4'
+        classpath 'me.ele:eradle:2.0.4'
     }
 }
 

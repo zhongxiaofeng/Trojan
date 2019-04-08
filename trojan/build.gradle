@@ -6,10 +6,11 @@ buildscript {
 }
 
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+//apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'eradle'
 
 def trojan_version_code = 16
-def trojan_version = "0.1.6"
+def trojan_version = "0.1.6-SNAPSHOT"
 
 android {
     //这是为了debug C++而加的，后面要去掉
@@ -82,9 +83,19 @@ task copyOutputs {
     }
 }
 
-publish {
-    userOrg = 'michaelzhong'
-    groupId = 'me.ele'
-    artifactId = 'trojan-library'
-    publishVersion = "$trojan_version"
+//publish {
+//    userOrg = 'michaelzhong'
+//    groupId = 'me.ele'
+//    artifactId = 'trojan-library'
+//    publishVersion = "$trojan_version"
+//}
+
+modifyPom {
+    project {
+        groupId 'me.ele'
+        artifactId "trojan-library"
+        version "$trojan_version"
+        packaging 'aar'
+        description "trojan-library"
+    }
 }
